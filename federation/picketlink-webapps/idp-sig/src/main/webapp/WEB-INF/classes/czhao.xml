@@ -1,0 +1,47 @@
+<CardHolderData>
+	<Card>
+		<Id>1</Id>
+		<NickName>Citi Bank Diamonds</NickName>
+		<CardHolderName>Charles Zhao</CardHolderName>
+		<DefaultCard>true</DefaultCard>
+		<AccountNumber>5463526323226473</AccountNumber>
+		<ExpiryMonth>05</ExpiryMonth>
+		<ExpiryYear>2014</ExpiryYear>
+		<BillingAddress>
+			<Id>1</Id>
+			<Line1>123 North Street</Line1>
+			<City>Arlington</City>
+			<CountrySubdivision>Viginia</CountrySubdivision>
+			<Country>US</Country>
+			<PostalCode>22019</PostalCode>
+		</BillingAddress>
+	</Card>
+	<Card>
+		<Id>2</Id>
+		<NickName>Citi Bank Rewards</NickName>
+		<CardHolderName>Charles Zhao</CardHolderName>
+		<DefaultCard>true</DefaultCard>
+		<AccountNumber>6234263232262473</AccountNumber>
+		<ExpiryMonth>01</ExpiryMonth>
+		<ExpiryYear>2015</ExpiryYear>
+		<BillingAddress>
+			<Id>1</Id>
+			<Line1>123 North Street</Line1>
+			<City>Arlington</City>
+			<CountrySubdivision>Viginia</CountrySubdivision>
+			<Country>US</Country>
+			<PostalCode>22019</PostalCode>
+		</BillingAddress>
+	</Card>	
+	<Contact>
+		<FirstName>Charles</FirstName>
+		<MiddleInitial>N</MiddleInitial>
+		<LastName>Zhao</LastName>
+		<EmailAddress>czhao@danteconsulting.com</EmailAddress>
+		<PhoneNumber>
+			<CountryCode>1</CountryCode>
+			<Number>7031112222</Number>
+			<Extension>123</Extension>
+		</PhoneNumber>
+	</Contact>
+</CardHolderData>

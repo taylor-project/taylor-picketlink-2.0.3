@@ -1,0 +1,16 @@
+<PicketLinkIDP xmlns="urn:picketlink:identity-federation:config:1.0" AttributeManager="com.mastercard.paypass.samlv2.attributes.PayPassAttributeManager">
+<IdentityURL>${idp-sig.url::http://localhost:8080/idp-sig/}</IdentityURL>
+<Trust>
+   <Domains>localhost,jboss.com,jboss.org,redhat.com,amazonaws.com</Domains>
+</Trust>
+<KeyProvider ClassName="org.picketlink.identity.federation.core.impl.KeyStoreKeyManager">
+   <Auth Key="KeyStoreURL" Value="/dante_idp_keystore.jks" />
+   <Auth Key="KeyStorePass" Value="MASK-OpPrvagsnxVWPlaosYkKag==" />
+   <Auth Key="SigningKeyPass" Value="MASK-FJ3WVcyw2lcqhvVNmylsvw==" />
+   <Auth Key="SigningKeyAlias" Value="dante-idp-cert" />
+   <Auth Key="salt" Value="71823943" />
+   <Auth Key="iterationCount" Value="27" />
+   <ValidatingAlias Key="localhost" Value="dante-idp-cert"/>
+   <ValidatingAlias Key="127.0.0.1" Value="dante-idp-cert"/>
+</KeyProvider>
+</PicketLinkIDP>
