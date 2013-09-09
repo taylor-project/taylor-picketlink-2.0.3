@@ -1,1 +1,2 @@
 language: java
+script: "cd fedeartion; mvn clean install"
