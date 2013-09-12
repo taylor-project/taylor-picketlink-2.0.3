@@ -13,6 +13,10 @@
    <url>http://labs.jboss.org/portal/picketlink/</url>
    <description>PicketLink Federation is the federated identity project for JEMS projects</description>
 
+	<properties>
+		<wagon.ssh.version>1.0-beta-2</wagon.ssh.version>
+	</properties>
+
    <modules>
      <module>parent</module>
      <module>picketlink-xmlsec-model</module>
@@ -37,5 +41,42 @@
         </plugin>
      </plugins>
    </reporting>
+
+	<distributionManagement>
+		<repository>
+			<id>taylor-maven2-repository</id>
+			<name>Taylor Maven2 Repository</name>
+			<url>sftp://web.sourceforge.net/home/project-web/taylor/htdocs/maven2</url>
+		</repository>	
+		<snapshotRepository>
+			<id>taylor-maven2-snapshot-repository</id>
+			<name>Taylor Maven2 Snapshot Repository</name>
+			<url>sftp://web.sourceforge.net/home/project-web/taylor/htdocs/maven2</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<profiles>
+		<profile>
+			<id>mvn3</id>
+			<!--profile used to switch settings that enable the build to run under mvn3-->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<wagon.ssh.version>2.4</wagon.ssh.version>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<extensions>
+    		<extension>
+      			<groupId>org.apache.maven.wagon</groupId>
+       			<artifactId>wagon-ssh</artifactId>
+       			<version>${wagon.ssh.version}</version>
+    		</extension>
+  		</extensions>
+	</build>
 
 </project>
