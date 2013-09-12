@@ -116,7 +116,7 @@
        <id>jboss-public-repository-group</id>
        <name>JBoss Public Maven Repository Group</name>
        <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-       <layout>default</layout>
+       <!--<layout>default</layout>
        <releases>
          <enabled>true</enabled>
          <updatePolicy>never</updatePolicy>
@@ -124,9 +124,9 @@
        <snapshots>
          <enabled>true</enabled>
          <updatePolicy>never</updatePolicy>
-       </snapshots>
+       </snapshots>-->
      </repository>
-    <repository>
+    <!--<repository>
       <id>snapshots.jboss.org</id>
       <name>JBoss Snapshots Repository</name>
       <layout>default</layout>
@@ -137,7 +137,7 @@
       <releases>
          <enabled>false</enabled>
       </releases>
-    </repository>
+    </repository>-->
   </repositories>
   
   <dependencyManagement>
