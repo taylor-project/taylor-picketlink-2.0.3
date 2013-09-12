@@ -12,6 +12,11 @@
    <name>PicketLink Federation- Parent</name>
    <url>http://labs.jboss.org/portal/picketlink/</url>
    <description>PicketLink is a cross-cutting project that handles identity  needs for the JEMS projects</description>
+	
+	<properties>
+		<wagon.ssh.version>1.0-beta-2</wagon.ssh.version>
+	</properties>
+
    <licenses>
       <license>
          <name>lgpl</name>
@@ -41,7 +46,27 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<profiles>
+		<profile>
+			<id>mvn3</id>
+			<!--profile used to switch settings that enable the build to run under mvn3-->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<wagon.ssh.version>2.4</wagon.ssh.version>
+			</properties>
+		</profile>
+	</profiles>
+
    <build>
+		<extensions>
+    		<extension>
+      			<groupId>org.apache.maven.wagon</groupId>
+       			<artifactId>wagon-ssh</artifactId>
+       			<version>${wagon.ssh.version}</version>
+    		</extension>
+  		</extensions>
      <plugins>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
