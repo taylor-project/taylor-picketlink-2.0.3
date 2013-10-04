@@ -43,6 +43,8 @@ public class SAMLSPMetadata {
 		EntitiesDescriptorType entitiesDescriptor = (EntitiesDescriptorType) samlParser
 				.parse(is);
 
+		spDescriptors.clear();
+		
 		for (Object object : entitiesDescriptor.getEntityDescriptor()) {
 			if (object instanceof EntityDescriptorType) {
 				EntityDescriptorType entityDescriptor = (EntityDescriptorType) object;
