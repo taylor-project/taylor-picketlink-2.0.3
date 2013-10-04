@@ -12,6 +12,11 @@
    <name>PicketLink Federation- Parent</name>
    <url>http://labs.jboss.org/portal/picketlink/</url>
    <description>PicketLink is a cross-cutting project that handles identity  needs for the JEMS projects</description>
+	
+	<properties>
+		<wagon.ssh.version>1.0-beta-2</wagon.ssh.version>
+	</properties>
+
    <licenses>
       <license>
          <name>lgpl</name>
@@ -27,7 +32,41 @@
       <developerConnection>scm:svn:https://svn.jboss.org/repos/picketlink/federation/tags/1.0.0.alpha1</developerConnection>
    </scm>
   
+	<distributionManagement>
+		<repository>
+			<id>taylor-maven2-repository</id>
+			<name>Taylor Maven2 Repository</name>
+			<url>sftp://web.sourceforge.net/home/project-web/taylor/htdocs/maven2</url>
+		</repository>	
+		<snapshotRepository>
+			<id>taylor-maven2-snapshot-repository</id>
+			<name>Taylor Maven2 Snapshot Repository</name>
+			<url>sftp://web.sourceforge.net/home/project-web/taylor/htdocs/maven2</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<profiles>
+		<profile>
+			<id>mvn3</id>
+			<!--profile used to switch settings that enable the build to run under mvn3-->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<wagon.ssh.version>2.4</wagon.ssh.version>
+			</properties>
+		</profile>
+	</profiles>
+
    <build>
+		<extensions>
+    		<extension>
+      			<groupId>org.apache.maven.wagon</groupId>
+       			<artifactId>wagon-ssh</artifactId>
+       			<version>${wagon.ssh.version}</version>
+    		</extension>
+  		</extensions>
      <plugins>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
@@ -35,6 +74,10 @@
             <tagBase>https://svn.jboss.org/repos/picketlink/federation/tags</tagBase>
           </configuration>
         </plugin>
+		<plugin>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.5</version>
+		</plugin>
      </plugins>
      <pluginManagement>
        <plugins>
@@ -73,7 +116,7 @@
        <id>jboss-public-repository-group</id>
        <name>JBoss Public Maven Repository Group</name>
        <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-       <layout>default</layout>
+       <!--<layout>default</layout>
        <releases>
          <enabled>true</enabled>
          <updatePolicy>never</updatePolicy>
@@ -81,18 +124,9 @@
        <snapshots>
          <enabled>true</enabled>
          <updatePolicy>never</updatePolicy>
-       </snapshots>
+       </snapshots>-->
      </repository>
-    <repository>
-      <id>repository.jboss.org</id>
-      <name>JBoss Repository</name>
-      <layout>default</layout>
-      <url>http://repository.jboss.org/maven2/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
+    <!--<repository>
       <id>snapshots.jboss.org</id>
       <name>JBoss Snapshots Repository</name>
       <layout>default</layout>
@@ -103,7 +137,7 @@
       <releases>
          <enabled>false</enabled>
       </releases>
-    </repository>
+    </repository>-->
   </repositories>
   
   <dependencyManagement>

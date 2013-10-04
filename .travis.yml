@@ -1,2 +1,14 @@
+env: 
+  global: 
+  - secure: jVNPEeBz7wQ527x0gSQh3fEsd9MiNxhNiVDLiI2hdWKrs03phemBegmeCzpsNhRJQyiGcx+sIJhK9rTtpjwmdCOELVRJpXjpruaEDjzBbvsI2bZhEeo8xZRDbZBfakTQWT5jZIz5ITl5+rKnZvueY+GW87i3hO+UK+XMCJsOUAY=
+  - secure: BHLe8wRdgjNisT3+7/QqBCFBr2gu73N/5tqq0Sua7MqQZZ/hGFw5hrSQS7Up0Vi1AhA8MGTEwgbJAxLLMLvro8h82kWGrvOmlNBILHuYbtFQoPXEbCLGy8iL08jtpSCzn1GZuumjdInSCrv/uot3Ng6uTFtnC/ExsTHMHjkSWhM=
 language: java
-script: "cd federation; mvn clean install"
+notifications: 
+  email: 
+  - michael.donovan@danteinc.com
+  - john.gilbert@danteinc.com
+  - charles.zhao@danteinc.com
+before_script: 
+  - echo "web.sourceforge.net ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA2uifHZbNexw6cXbyg1JnzDitL5VhYs0E65Hk/tLAPmcmm5GuiGeUoI/B0eUSNFsbqzwgwrttjnzKMKiGLN5CWVmlN1IXGGAfLYsQwK6wAu7kYFzkqP4jcwc5Jr9UPRpJdYIK733tSEmzab4qc5Oq8izKQKIaxXNe7FgmL15HjSpatFt9w/ot/CHS78FUAr3j3RwekHCm/jhPeqhlMAgC+jUgNJbFt3DlhDaRMa0NYamVzmX8D47rtmBbEDU3ld6AezWBPUR5Lh7ODOwlfVI58NAf/aYNlmvl2TZiauBCTa7OPYSyXJnIPbQXg6YQlDknNCr0K769EjeIlAfY87Z4tw==" >> ~/.ssh/known_hosts
+script: 
+  - cd federation; mvn clean install deploy --settings ./parent/settings.xml -Pmvn3
