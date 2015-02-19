@@ -340,10 +340,12 @@ public class SAMLParserUtil
       }
       else if (typeValue.contains(":anyType"))
       {
-         //Added element -CZ
-    	 String anyType = StaxParserUtil.getElement(xmlEventReader).toString();
-    	 System.out.println("Read anyType attribute value: " + anyType);
-         return anyType;
+			// 1) Added element -CZ
+			// 2) Changing to use getElementText rather than getElement for
+			// anyType for fixing salesforce idp saml attributes
+			String anyType = StaxParserUtil.getElementText(xmlEventReader).toString();
+			System.out.println("Read anyType attribute value: " + anyType);
+			return anyType;
       }
 
       throw new RuntimeException(UNKNOWN_XSI + typeValue);
